@@ -7,6 +7,7 @@ import Wind from './assets/wind.png'
 const Weather = () => {
 
   const [weatherData, setWeatherData] = useState(false);
+  const [degree, setDegree] = useState(true);
 
   const inputRef = useRef();
 
@@ -40,6 +41,8 @@ const Weather = () => {
   },[])
 
   return (
+    <>
+    <h1>Weather App</h1>
     <div className='container'>
        {weatherData?
        <>
@@ -51,9 +54,14 @@ const Weather = () => {
            />
            <img src={search} className='icon' onClick={() => Search(inputRef.current.value)}/>
        </div>
-       <img src={`https://openweathermap.org/img/wn/${weatherData.icon}.png`} className='weather' />
+       <img src={`https://openweathermap.org/img/wn/${weatherData.icon}.png`} className='weather' loading='lazy' />
        <span className='climate'>{weatherData.weather}</span>
-       <p className='temperature'>{weatherData.temperature}°c</p>
+       <p className='temperature'>
+        {degree?(`${weatherData.temperature}°C`):`${Math.floor((weatherData.temperature * 9/5)+32)}°F`}
+        </p>
+       <button className='toggle-btn'
+       onClick={()=>setDegree(!degree)}
+       >Toggle °C/°F</button>
        <p className='location'>{weatherData.city}</p>
        <div className='weather-data'>
            <div className='col'>
@@ -79,6 +87,7 @@ const Weather = () => {
        </>
        }
     </div>
+    </>
   )
 }
 

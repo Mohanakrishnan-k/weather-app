@@ -14,6 +14,23 @@
     border-radius: 50%;
 }
 
+.toggle-btn{
+    width: 75px;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background: black;
+    color: white;
+}
+
+.toggle-btn:hover{
+    width: 80px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
 .weather-input input{
  outline: none;
  border: none;
@@ -33,6 +50,8 @@
 .weather{
     width: 100px;
     margin: 10px 0px;
+    background-color: rgb(197, 149, 243);
+    border-radius: 10px;
 }
 .temperature{
     font-size: 30px;
@@ -57,12 +76,12 @@
     font-weight: bold;
 }
 
+
 .weather-data{
     margin-top: 15px;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    
 }
 
 .col{
@@ -76,6 +95,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.weather-data img{
+    background-color: rgb(197, 149, 243);
+}
+
+h1{
+    place-self: center;
+      font-family: 'Poppins', sans-serif;
 }
 
 .wind{
